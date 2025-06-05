@@ -19,11 +19,6 @@ export default class SpacingParser extends BaseParser {
     }
 
     async displayResults(data, containers) {
-        // Hide Firebase link for spacing-specific parser
-        if (containers.hideFirebaseLink) {
-            containers.hideFirebaseLink();
-        }
-        
         containers.summaryContainer.innerHTML = this.createSummaryCard("Spacing Parser", "Active");
         containers.contentContainer.innerHTML = this.createAnalysisSection("Spacing Analysis", "<p>Spacing parser implementation coming soon.</p>");
     }

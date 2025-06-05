@@ -146,10 +146,7 @@ export default class ExpandFrameParser extends BaseParser {
         const crashAnalysis = this.performComprehensiveCrashAnalysis(data);
         const severity = this.assessCrashSeverity(data);
         
-        // Show Firebase Crashlytics link for expandFrame crashes
-        if (containers.showFirebaseLink) {
-            containers.showFirebaseLink(); // Uses default YouPerfect expandFrameWithSize URL
-        }
+
         
         const summaryHTML = [
             this.createSummaryCard('Text Style GUIDs', data.textStyleGuids.length),

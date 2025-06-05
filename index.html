@@ -278,10 +278,7 @@
             text-align: center;
         }
 
-        #firebaseLink a:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-1px);
-        }
+
 
         @media (max-width: 768px) {
             .parser-selector {
@@ -299,11 +296,6 @@
         <div class="header">
             <h1>YouPerfect Crash Log Analyzer</h1>
             <p>Upload and analyze crash logs with specialized parsers for different crash types</p>
-            <div id="firebaseLink" style="margin-top: 15px; display: none;">
-                <a id="firebaseLinkUrl" href="#" target="_blank" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 5px; font-size: 0.9em; display: inline-block; transition: all 0.3s ease;">
-                    🔥 View in Firebase Crashlytics →
-                </a>
-            </div>
         </div>
 
         <div class="upload-section">
@@ -469,25 +461,7 @@
             });
         }
 
-        // Firebase Crashlytics configuration
-        function showFirebaseLink(url = null) {
-            const firebaseLink = document.getElementById('firebaseLink');
-            const firebaseLinkUrl = document.getElementById('firebaseLinkUrl');
-            
-            if (url) {
-                firebaseLinkUrl.href = url;
-                firebaseLink.style.display = 'block';
-            } else {
-                // Default Firebase URL for YouPerfect expandFrameWithSize crashes
-                const defaultUrl = 'https://console.firebase.google.com/u/2/project/lofty-defender-461/crashlytics/app/ios:com.cyberlink.youperfect/issues/9fb9cb710f3211a6ab5fcbc27ca795d3';
-                firebaseLinkUrl.href = defaultUrl;
-                firebaseLink.style.display = 'block';
-            }
-        }
 
-        function hideFirebaseLink() {
-            document.getElementById('firebaseLink').style.display = 'none';
-        }
 
         // Main analysis function
         async function analyzeLog() {
@@ -517,9 +491,7 @@
                 // Display results using the parser's display function
                 await parser.displayResults(analysisData, {
                     summaryContainer: document.getElementById('summaryCards'),
-                    contentContainer: document.getElementById('analysisContent'),
-                    showFirebaseLink: showFirebaseLink,
-                    hideFirebaseLink: hideFirebaseLink
+                    contentContainer: document.getElementById('analysisContent')
                 });
                 
                 // Hide loading and show results

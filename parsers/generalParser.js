@@ -19,11 +19,6 @@ export default class GeneralParser extends BaseParser {
     }
 
     async displayResults(data, containers) {
-        // Hide Firebase link for general parser (not specific to expandFrame)
-        if (containers.hideFirebaseLink) {
-            containers.hideFirebaseLink();
-        }
-        
         containers.summaryContainer.innerHTML = this.createSummaryCard("General Parser", "Active");
         containers.contentContainer.innerHTML = this.createAnalysisSection("General Analysis", "<p>General parser implementation coming soon.</p>");
     }
